@@ -8,3 +8,4 @@ print(list(books))
 
 # Expected Output:
 # [] (empty list, assuming no other books exist)
+# Here is the delete.md file
