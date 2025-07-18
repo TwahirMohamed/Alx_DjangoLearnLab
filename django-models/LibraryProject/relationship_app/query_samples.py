@@ -10,7 +10,7 @@ from LibraryProject.relationship_app.models import Author, Library, Book
 def query_books_by_author(author_name):
     try:
         author = Author.objects.get(name=author_name)
-        books = author.books.all()
+        books = Book.objects.filter(author=author)
         print(f"Books by {author_name}:")
         for book in books:
             print(f"- {book.title}")
@@ -36,6 +36,6 @@ def get_librarian_for_library(library_name):
 
 if __name__ == "__main__":
     # Example queries
-    query_books_by_author("George Orwell")
-    list_books_in_library("Central Library")
-    get_librarian_for_library("Central Library")
+    query_books_by_author("Twahir Mohamed")
+    list_books_in_library("Kasha Bashalala")
+    get_librarian_for_library("kasha Bashalulu")
