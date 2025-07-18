@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import DetailView
-from .models import Book
+from .models import Book, Library
 
 # Create your views here.
 def book_list(request):
@@ -14,7 +14,7 @@ def book_list(request):
 class LibraryDetailView(DetailView):
     """A class-based view for displaying details of a specific book."""
     model = Book
-    template_name = 'books/library_detail.html'
+    template_name = 'relationship_app/library_detail.html'
 
     def get_context_data(self, **kwargs):
         """Injects additional context data specific to the book."""
