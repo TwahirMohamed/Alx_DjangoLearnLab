@@ -14,11 +14,17 @@ class Author(models.Model):
     """Table for the author"""
     name = models.CharField(max_length=80)
 
+    def __str__(self):
+        return self.name
+
 
 class Book(models.Model):
     """Table for the book"""
     title = models.CharField(max_length=100)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='authors')
+
+    def __str__(self):
+        return self.name
 
 
 class Library(models.Model):
@@ -26,8 +32,14 @@ class Library(models.Model):
     name = models.CharField(max_length=80)
     books = models.ManyToManyField(Book, related_name='library')
 
+    def __str__(self):
+        return self.name
+
 
 class Librarian(models.Model):
     """Table for the Librarian"""
     name = models.CharField(max_length=80)
     library = models.OneToOneField(Library, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
