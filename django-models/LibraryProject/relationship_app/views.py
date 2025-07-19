@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic.detail import DetailView
 from .models import Book
@@ -14,12 +14,12 @@ def book_list(request):
 
 class LibraryDetailView(DetailView):
     """A class-based view for displaying details of a specific book."""
-    model = Book
+    model = Library
     template_name = 'relationship_app/library_detail.html'
 
     def get_context_data(self, **kwargs):
         """Injects additional context data specific to the book."""
         context = super().get_context_data(**kwargs)  # Get default context data
-        context['books'] = self.object.books.all()
+        context['books'] = self.object.library.all()
         return context
 
