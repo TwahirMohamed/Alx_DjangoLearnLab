@@ -6,8 +6,33 @@ from django.http import HttpResponse
 from django.views.generic.detail import DetailView
 from .models import Book
 from .models import Library
+from django.contrib.auth.decorators import user_passes_test
+from .models import UserProfile
 
 # Create your views here.
+def check_role(user, role):
+    return hasattr(user, 'userprofile') and user.userprofile.role == role
+
+def admin_check(user):
+    return check_role(user, 'Admin')
+
+def librarian_check(user):
+    return check_role(user, 'Librarian')
+
+def member_check(user):
+    return check_role(user, 'Member')
+
+@user_passes_test(admin_check)
+def admin_view(request):
+    return render(request, 'relationship_app/admin_view.html')
+
+@user_passes_test(librarian_check)
+def librarian_view(request):
+    return render(request, 'relationship_app/librarian_view.html')
+
+@user_passes_test(member_check)
+def member_view(request):
+    return render(request, 'relationship_app/member_view.html')
 def user_login(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
