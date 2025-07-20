@@ -9,6 +9,7 @@ from .models import Library
 from django.contrib.auth.decorators import user_passes_test
 from .models import UserProfile
 from .forms import BookForm
+from django.contrib.auth.decorators import permission_required
 
 # Create your views here.
 # Add Book
