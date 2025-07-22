@@ -27,7 +27,7 @@ class UserProfile(models.Model):
         return f'{self.user.username} - {self.role}'
 
 # Signal to automatically create UserProfile on user creation
-@receiver(post_save, sender=User)
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
