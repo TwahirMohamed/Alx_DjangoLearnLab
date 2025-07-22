@@ -126,3 +126,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'book_list'
 LOGOUT_REDIRECT_URL = 'login'
+
+# Custom User
+AUTH_USER_MODEL = 'relationship_app.CustomUser'
