@@ -1,8 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.contrib.auth.admin import AbstractUser, BaseUserManager
+from django.contrib.auth.models import AbstractUser, BaseUserManager
 # Create your models here.
 # Syntax
 # from django.db import models
@@ -54,7 +53,7 @@ class Book(models.Model):
         ]
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class Library(models.Model):
@@ -98,4 +97,4 @@ class CustomUser(AbstractUser):
     objects = CustomUserManager()
 
     def __str__(self):
-        return self.name
+        return self.username
