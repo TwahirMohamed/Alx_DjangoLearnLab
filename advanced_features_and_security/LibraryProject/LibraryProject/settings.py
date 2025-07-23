@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-a^==w_1ybv_5$%)!%ve4%2!isf#!h!4b8-qmw%v2y_9*a%h7b#'
+SECRET_KEY = 'django-insecure-8w!ympssjah(j$dy+h9o$=oybebbtjo7g96rsz4=k-k=kt!r)5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'LibraryProject.relationship_app',
 ]
 
 MIDDLEWARE = [
@@ -121,11 +120,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Authentication redirects
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'book_list'
-LOGOUT_REDIRECT_URL = 'login'
-
-# Custom User
-AUTH_USER_MODEL = 'relationship_app.CustomUser'
