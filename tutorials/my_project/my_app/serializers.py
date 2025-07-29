@@ -4,10 +4,10 @@ from datetime import datetime
 
 
 class BookSerializer(serializers.ModelSerializer):
-    days_since_created = serializers.SerializerMethodField()
+    days_since_created = serializers.SerializerMethodField() # Customization
     class Meta:
         model = Book
         fields = '__all__'
-    def get_days_since_created(self, obj):
+    def get_days_since_created(self, obj):# customizing serializers
         delta = datetime.now().date() - obj.created_at.date()
         return delta.days
