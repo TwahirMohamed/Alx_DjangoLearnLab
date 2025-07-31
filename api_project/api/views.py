@@ -17,5 +17,6 @@ class BookList(generics.ListAPIView):
     #     return queryset
 
 class BookViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     queryset = Book.objects.all()
     serializer_class = BookSerializer
