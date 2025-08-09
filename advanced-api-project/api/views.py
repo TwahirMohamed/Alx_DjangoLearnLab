@@ -3,6 +3,8 @@ from rest_framework import generics, mixins, permissions
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from .models import Book, Author 
 from .serializers import BookSerializer, AuthorSerializer
+from rest_framework.filters import SearchFilter, OrderingFilter 
+from django_filters import rest_framework as filters 
 
 # Create your views here.
 class CustomBookListView(generics.ListAPIView):
