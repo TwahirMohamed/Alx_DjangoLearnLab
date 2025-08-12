@@ -3,3 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 def home(request):
     return render(request, 'blog/base.html')
+
+def posts_list(request):
+    # This would list blog posts
+    return render(request, 'blog/posts_list.html')
