@@ -3,10 +3,11 @@ from rest_framework import generics, permissions
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
-from django.contrib.auth import get_user_model
+# from django.contrib.auth import get_user_model
+from .models import CustomUser
 from .serializers import RegisterSerializer, UserSerializer
 
-User = get_user_model()
+User = CustomUser
 
 class RegisterView(generics.GenericAPIView):
     queryset = CustomUser.objects.all()
