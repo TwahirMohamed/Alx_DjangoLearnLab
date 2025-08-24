@@ -8,10 +8,10 @@ from .serializers import RegisterSerializer, UserSerializer
 
 User = get_user_model()
 
-class RegisterView(generics.CreateAPIView):
-    queryset = User.objects.all()
+class RegisterView(generics.GenericAPIView):
+    queryset = CustomUser.objects.all()
     serializer_class = RegisterSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticated]
 
 class CustomAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
